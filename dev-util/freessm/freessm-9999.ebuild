@@ -13,7 +13,7 @@ EGIT_REPO_URI="https://github.com/Comer352L/FreeSSM.git"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE="qt4 qt5 linguas_en linguas_de"
+IUSE="doc qt4 qt5 linguas_en linguas_de"
 REQUIRED_USE="|| ( qt4 qt5 )"
 LANGS="en de"
 inherit qt4-r2 qmake-utils
@@ -60,11 +60,11 @@ src_compile() {
 
 src_install() {
 	
-	exeinto "/usr/share/${P}/"
+	exeinto "/usr/share/${PF}/"
 	doexe "${S}/FreeSSM"
-	dosym "/usr/share/${P}/FreeSSM" "/usr/bin/FreeSSM"
+	dosym "/usr/share/${PF}/FreeSSM" "/usr/bin/FreeSSM"
 	
-	insinto "/usr/share/${P}/"
+	insinto "/usr/share/${PF}/"
 	if use linguas_en; then
 		doins "${S}/FreeSSM_en.qm"
 	fi
@@ -80,11 +80,12 @@ src_install() {
 	doins "${S}/LiberationSans-Italic.ttf"
 	doins "${S}/LiberationSans-Regular.ttf"
 	
-	insinto "/usr/share/${P}/doc/"
-	doins "${S}/doc/bg.jpg"
-	doins "${S}/doc/help_en.html"
-	doins "${S}/doc/help_de.html"
-
+	if use doc; then
+		dodoc "${S}/doc/bg.jpg"
+		dodoc "${S}/doc/help_en.html"
+		dodoc "${S}/doc/help_de.html"
+		dosym "/usr/share/doc/${PF}" "/usr/share/${PF}/doc"
+	fi
 }
 
 

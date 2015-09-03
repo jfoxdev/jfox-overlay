@@ -12,7 +12,7 @@ SRC_URI="https://github.com/Comer352L/FreeSSM/archive/v${PVR}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE="qt4 qt5 linguas_en linguas_de"
+IUSE="doc qt4 qt5 linguas_en linguas_de"
 LANGS="en de"
 inherit qt4-r2
 
@@ -58,11 +58,11 @@ src_compile() {
 
 src_install() {
 	
-	exeinto "/usr/share/${P}/"
+	exeinto "/usr/share/${PF}/"
 	doexe "${S}/FreeSSM"
-	dosym "/usr/share/${P}/FreeSSM" "/usr/bin/FreeSSM"
+	dosym "/usr/share/${PF}/FreeSSM" "/usr/bin/FreeSSM"
 	
-	insinto "/usr/share/${P}/"
+	insinto "/usr/share/${PF}/"
 	if use linguas_en; then
 		doins "${S}/FreeSSM-1.2.5/FreeSSM_en.qm"
 	fi
@@ -78,10 +78,12 @@ src_install() {
 	doins "${S}/FreeSSM-1.2.5/LiberationSans-Italic.ttf"
 	doins "${S}/FreeSSM-1.2.5/LiberationSans-Regular.ttf"
 	
-	insinto "/usr/share/${P}/doc/"
-	doins "${S}/FreeSSM-1.2.5/doc/bg.jpg"
-	doins "${S}/FreeSSM-1.2.5/doc/help_en.html"
-	doins "${S}/FreeSSM-1.2.5/doc/help_de.html"
+	if use doc; then
+		dodoc "${S}/FreeSSM-1.2.5/doc/bg.jpg"
+		dodoc "${S}/FreeSSM-1.2.5/doc/help_en.html"
+		dodoc "${S}/FreeSSM-1.2.5/doc/help_de.html"
+		dosym "/usr/share/doc/${PF}" "/usr/share/${PF}/doc" 
+	fi
 
 }
 
