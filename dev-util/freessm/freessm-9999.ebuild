@@ -2,10 +2,6 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-#
-# REMOVE ME
-# https://wiki.gentoo.org/wiki/Project:Games/Ebuild_howto#Creating_a_games_ebuild_in_your_overlay
-
 EAPI=5
 inherit git-r3
 
@@ -36,17 +32,12 @@ RDEPEND="${DEPEND}"
 
 EGIT_CHECKOUT_DIR=${WORKDIR}
 S=${EGIT_CHECKOUT_DIR}
-
 #EQMAKE4_EXCLUDE="src/windows/*" 
 
 
-
 src_prepare() {
-	git clone ${EGIT_REPO_URI} ${EGIT_CHECKOUT_DIR}
 
-	#patch "${S}/src/SSMP2communication_core.h" "${FILESDIR}/${P}-SSMP2communication_core.patch" 
-    #patch "${S}/src/linux/serialCOM.cpp" "${FILESDIR}/${P}-serialCOM.patch" 
-	
+	git clone ${EGIT_REPO_URI} ${EGIT_CHECKOUT_DIR}
 	
 	qmake -project 
 	
@@ -68,8 +59,6 @@ src_compile() {
 }
 
 src_install() {
-	
-	#emake DESTDIR="/usr/share/${P}" install
 	
 	exeinto "/usr/share/${P}/"
 	doexe "${S}/FreeSSM"

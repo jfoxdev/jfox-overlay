@@ -2,10 +2,6 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-#
-# REMOVE ME
-# https://wiki.gentoo.org/wiki/Project:Games/Ebuild_howto#Creating_a_games_ebuild_in_your_overlay
-
 EAPI=5
 inherit eutils flag-o-matic qmake-utils
 
@@ -41,7 +37,6 @@ src_prepare() {
     patch "${S}/FreeSSM-1.2.5/src/SSMP2communication_core.h" "${FILESDIR}/${P}-SSMP2communication_core.patch" 
     patch "${S}/FreeSSM-1.2.5/src/linux/serialCOM.cpp" "${FILESDIR}/${P}-serialCOM.patch" 
 	
-	
 	qmake -project 
 	
 	if use linguas_en; then
@@ -62,8 +57,6 @@ src_compile() {
 }
 
 src_install() {
-	
-	#emake DESTDIR="/usr/share/${P}" install
 	
 	exeinto "/usr/share/${P}/"
 	doexe "${S}/FreeSSM"
@@ -89,21 +82,6 @@ src_install() {
 	doins "${S}/FreeSSM-1.2.5/doc/bg.jpg"
 	doins "${S}/FreeSSM-1.2.5/doc/help_en.html"
 	doins "${S}/FreeSSM-1.2.5/doc/help_de.html"
-
-	#doins "${S}/FreeSSM"
-	#dosym "/usr/share/${P}/FreeSSM" "/usr/bin/FreeSSM"
-
-	#install -m 644 -p "${S}/FreeSSM-1.2.5/doc/bg.jpg" "${DESTDIR}/doc/"
-	#install -m 644 -p "${S}/FreeSSM-1.2.5/background.png" "${DESTDIR}"
-	#install -m 644 -p "${S}/FreeSSM-1.2.5/doc/help_de.html" "${DESTDIR}/doc/"
-	#install -m 644 -p "${S}/FreeSSM-1.2.5/LiberationSans-Bold.ttf" "${DESTDIR}"
-	#install -m 644 -p "${S}/FreeSSM-1.2.5/doc/help_en.html" "${DESTDIR}/doc/"
-	#install -m 755 -p "${S}/FreeSSM-1.2.5/FreeSSM" "/usr/bin/FreeSSM"
-	#install -m 644 -p "${S}/FreeSSM-1.2.5/LiberationSans-BoldItalic.ttf" "${DESTDIR}"
-	#install -m 644 -p "${S}/FreeSSM-1.2.5/LiberationSans-Italic.ttf" "${DESTDIR}"
-	#install -m 644 -p "${S}/FreeSSM-1.2.5/LiberationSans-Regular.ttf" "${DESTDIR}"
-	#install -m 644 -p "${S}/FreeSSM-1.2.5/resources/icons/freessm/48x48/FreeSSM.png" "${DESTDIR}"
-
 
 }
 
