@@ -1,0 +1,12 @@
+--- FreeSSM-1.2.5/src/SSMP2communication_core.h	2010-05-26 12:11:58.000000000 -0400
++++ FreeSSM-1.2.5/src/SSMP2communication_core.h_new	2015-09-02 19:55:47.094233569 -0400
+@@ -25,7 +25,8 @@
+     #define waitms(x) Sleep(x);
+     #include "windows\serialCOM.h"
+ #elif defined __linux__
+-    #define waitms(x) usleep(1000*x);
++	#include <unistd.h>
++	#define waitms(x) usleep(1000*x);
+     #include "linux/serialCOM.h"
+ #else
+     #error "Operating system not supported !"

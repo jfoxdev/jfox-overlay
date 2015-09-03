@@ -1,0 +1,11 @@
+--- FreeSSM-1.2.5/src/linux/serialCOM.cpp	2015-09-01 21:28:50.000000000 -0400
++++ FreeSSM-1.2.5/src/linux/serialCOM_new.cpp	2015-09-02 19:40:01.000000000 -0400
+@@ -18,7 +18,7 @@
+  */
+ 
+ #include "serialCOM.h"
+-
++#include <unistd.h>
+ 
+ serialCOM::serialCOM()
+ {
