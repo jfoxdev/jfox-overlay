@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>jfox.dev@gmail.com</email>
+		<name>Jesse Fox</name>
+	</maintainer>
+	<longdescription>
+	A simple tool for visually comparing two PDF files
+	</longdescription>
+</pkgmetadata>
+
