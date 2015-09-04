@@ -13,4 +13,6 @@ Gentoo Portage User Overlay
 * media-radio/wxtoimg-2.10.11            ~amd64 ~x86
 * (beta) media-radio/wxtoimg-2.11.2      ~amd64 ~x86 ~arm 
  
-
+#### diff-pdf
+* app-text/diff-pdf-0.2            ~amd64 ~x86
+* app-text/diff-pdf-9999            ~amd64 ~x86
