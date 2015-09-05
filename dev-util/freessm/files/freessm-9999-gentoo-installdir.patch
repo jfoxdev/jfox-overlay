@@ -1,0 +1,11 @@
+--- FreeSSM.pro	2015-09-04 19:01:45.332418826 -0400
++++ FreeSSM.pro_gentoo	2015-09-04 19:03:09.422421159 -0400
+@@ -141,7 +141,7 @@
+ QMAKE_CXXFLAGS += -fno-gcse          # disable gcse-optimization (regressions with gcc-versions >= 4.2)
+ 
+ # Installation
+-unix:INSTALLDIR = $$system(echo ~)/FreeSSM
++unix:INSTALLDIR = /usr/share/${PF}
+ win32:INSTALLDIR = $$system(echo %homedrive%)/FreeSSM
+ target.path = $$INSTALLDIR
+ filestarget.path = $$INSTALLDIR
