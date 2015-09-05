@@ -53,8 +53,7 @@ src_prepare() {
 }
 
 src_compile() {
-	eqmake4 "${S}/FreeSSM-1.2.5/FreeSSM.pro"	
-	
+	eqmake4 "${S}/FreeSSM-1.2.5/FreeSSM.pro"
 	qt4-r2_src_compile
 }
 
@@ -64,9 +63,8 @@ src_install() {
 }
 
 pkg_postinst() {
-	
 	for lang in $LANGS; do
-		if ! use "linguas_${lang}"; then 
+		if ! use "linguas_${lang}"; then
 			NO_TRANSLATIONS="${NO_TRANSLATIONS} linguas_${lang}"
 		fi
 	done
