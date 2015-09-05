@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>jfox.dev@gmail.com</email>
+		<name>Jesse Fox</name>
+	</maintainer>
+	<longdescription>
+	RomRaider is a free, open source tuning suite created for viewing, 
+	logging and tuning of modern Subaru Engine Control Units.
+	</longdescription>
+</pkgmetadata>
+
